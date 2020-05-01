@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
   font-family: sans-serif;
-    background: linear-gradient(88deg, pink 0%, orange 100%);
+  background: linear-gradient(88deg, rgb(205, 101, 194) 0%, rgb(223, 212, 108) 100%);
 }
 
 code {
