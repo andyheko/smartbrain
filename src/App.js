@@ -9,7 +9,7 @@ import './App.css';
 const particleOptions = {
   "particles": {
     "number": {
-      "value": 150
+      "value": 200
     },
     "size": {
       "value": 3
@@ -25,6 +25,16 @@ const particleOptions = {
   }
 }
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      input: '',
+    }
+  }
+
+  onInputChange = (event) => {
+    console.log(event);
+  }
   render(){
     return (
       <div className="App">
@@ -34,7 +44,7 @@ class App extends Component {
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm />
+        <ImageLinkForm onInputChange={this.onInputChange}/>
         {/*
         <FaceRecognition />*/}
 
