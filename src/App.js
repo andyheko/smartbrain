@@ -40,9 +40,26 @@ class App extends Component {
       imageUrl: '',
       box: {},
       route: 'signin',
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
   }
+
+loadUser =(userdata) => {
+  this.setState({user: {
+    id: userdata.id,
+    name: userdata.name,
+    email: userdata.email,
+    entries: userdata.entries,
+    joined: userdata.joined
+  }})
+}
 
   // componentDidMount() {
   //   fetch('http://localhost:3000/')
@@ -103,7 +120,7 @@ class App extends Component {
         {route === 'home'
           ? <div>
               <Logo />
-              <Rank />
+              <Rank name={this.state.user.name} entries={this.state.user.entries}/>
               <ImageLinkForm
                 onInputChange={this.onInputChange}
                 onButtonSubmit={this.onButtonSubmit}
@@ -114,8 +131,8 @@ class App extends Component {
               />
           </div>
           :(this.state.route === 'signin'
-            ? <Signin onRouteChange={this.onRouteChange}/>
-            : <Register onRouteChange={this.onRouteChange}/>
+            ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+            : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
           )
 
         }
