@@ -32,23 +32,24 @@ const particleOptions = {
     }
   }
 }
+const initialState = {
+  input: '',
+  imageUrl: '',
+  box: {},
+  route: 'signin',
+  isSignedIn: false,
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    entries: 0,
+    joined: ''
+  }
+}
 class App extends Component {
   constructor(){
     super();
-    this.state = {
-      input: '',
-      imageUrl: '',
-      box: {},
-      route: 'signin',
-      isSignedIn: false,
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        entries: 0,
-        joined: ''
-      }
-    }
+    this.state = initialState;
   }
 
 loadUser =(userdata) => {
@@ -92,7 +93,8 @@ loadUser =(userdata) => {
   onButtonSubmit = () => {
     // console.log('click');
     this.setState({imageUrl: this.state.input});
-    app.models.predict(
+    app.models
+      .predict(
         Clarifai.FACE_DETECT_MODEL,
         this.state.input)
       .then(response => {
@@ -108,6 +110,7 @@ loadUser =(userdata) => {
             .then(count => {
               this.setState(Object.assign(this.state.user, {entries: count}))
             })
+            .catch(console.log)
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
@@ -116,8 +119,8 @@ loadUser =(userdata) => {
 
   onRouteChange = (route) => {
     if (route === 'signout'){
-      this.setState({isSignedIn: false})
-    }else if (route === 'home'){
+      this.setState(initialState)
+    } else if (route === 'home'){
       this.setState({isSignedIn: true})
     }
     this.setState({route: route});
