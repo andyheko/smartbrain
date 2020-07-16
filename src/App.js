@@ -27,6 +27,7 @@ const particleOptions = {
     }
   }
 }
+
 const initialState = {
   input: '',
   imageUrl: '',
@@ -41,6 +42,7 @@ const initialState = {
     joined: ''
   }
 }
+
 class App extends Component {
   constructor(){
     super();
@@ -88,7 +90,7 @@ loadUser =(userdata) => {
   onButtonSubmit = () => {
     // console.log('click');
     this.setState({imageUrl: this.state.input});
-      fetch('http://localhost:3000/imageurl', {
+      fetch('https://blooming-beach-73561.herokuapp.com/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -98,7 +100,7 @@ loadUser =(userdata) => {
       .then(response => response.json())
       .then(response => {
         if (response){
-          fetch('http://localhost:3000/image', {
+          fetch('https://blooming-beach-73561.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
