@@ -7,6 +7,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
+import Clarifai from 'rclarifai'
 import './App.css';
 
 const particleOptions = {
@@ -49,13 +50,13 @@ class App extends Component {
     this.state = initialState;
   }
 
-loadUser =(userdata) => {
+loadUser =(data) => {
   this.setState({user: {
-    id: userdata.id,
-    name: userdata.name,
-    email: userdata.email,
-    entries: userdata.entries,
-    joined: userdata.joined
+    id: data.id,
+    name: data.name,
+    email: data.email,
+    entries: data.entries,
+    joined: data.joined
   }})
 }
 
