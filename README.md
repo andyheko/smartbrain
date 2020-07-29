@@ -1,5 +1,20 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Smart Brain
+Smart Brain is a web app which uses Clarifai API to recognize and locate face in a picture. Front-end was built with HTML5, CSS3, JavaScript, and React.js.
 
+
+# Demo
+![demo](https://github.com/andyheko/smartbrain-api/blob/master/Demo.png)
+
+# Technologies Used
+* HTML5
+* CSS3
+* React.js
+
+# API
+* [Smart Brain API](https://github.com/andyheko/smartbrain-api)
+* [Clarifai] (https://www.clarifai.com/)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 ## Available Scripts
 
 In the project directory, you can run:
